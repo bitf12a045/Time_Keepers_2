@@ -1,0 +1,81 @@
+﻿@model TimeKeepers_v2.Models.MWatch
+
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<style>
+    form {
+        /* Just to center the form on the page */
+        margin: 0 auto;
+        width: 400px;
+        /* To see the outline of the form */
+        padding: 1em;
+        border: 2px solid #000000;
+        border-radius: 1em;
+    }
+</style>
+
+<div id="wrapper" class="wrapper">
+
+    <div class="col-md-4">
+        <img class="floated_img" width="400" height="400" src="@Url.Content(@ViewBag.Image)" alt="@ViewBag.Image">
+    </div>
+
+    <div class="col-md-2">
+        <label style="display:none">aaaaaaa</label>
+    </div>
+    <!----forms---->
+
+    <div class="col-md-5 ">
+        @using (Html.BeginForm("ProductDetails", "Admin", FormMethod.Post))
+        {
+            <br />
+
+
+
+
+            <div class="form-group">
+
+                @Html.LabelFor(m => m.Name, "Name ", new { id = "n" })
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="@ViewBag.Name">
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div class="form-group">
+
+                @Html.LabelFor(m => m.Price, "Price ", new { id = "p" })
+                <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="@ViewBag.Price">
+                 @Html.ValidationMessageFor(m => m.Price)
+            </div>
+            
+             <div class="form-group">
+
+                @Html.LabelFor(m => m.Quantity, "Quantity ", new { id = "q" })
+                 <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" value="@ViewBag.quantity">
+                 @Html.ValidationMessageFor(m => m.Quantity)
+            </div>
+
+
+            <div style="margin-top:15px" class="text-center">
+                <button type="submit" class="btn btn-danger" > Update </button>
+            </div>
+            <div>
+                        <input type="hidden" value="@ViewBag.mreference" id="mreference" name="mreference">
+                      
+                    </div>
+        }
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

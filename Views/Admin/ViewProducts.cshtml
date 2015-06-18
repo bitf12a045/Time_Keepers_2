@@ -1,0 +1,37 @@
+﻿@model List<TimeKeepers_v2.Models.MWatch>
+
+@{
+    ViewBag.Title = "Products";
+
+}
+
+<br />
+<div id="wrapper" class="wrapper">
+
+    <div class="row text-center">
+        @foreach (var r in Model)
+        {
+
+
+            <div class="col-md-4 col-sm-6 hero-feature">
+                <div class="thumbnail ">
+                    <img src="@Url.Content(r.Image)" alt="Image" />
+                    <div class="caption">
+
+                        <p>
+                            <label>@r.Name</label><br />
+                            <label>@r.Price</label>
+                            <br />
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+
+    </div>
+    </div>
+

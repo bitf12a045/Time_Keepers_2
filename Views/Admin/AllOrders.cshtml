@@ -1,0 +1,100 @@
+﻿@model List<TimeKeepers_v2.Models.Reciept>
+
+@{
+    ViewBag.Title = "Orders";
+    var i=1;
+}
+
+<script>
+    $(document).ready(function () {
+        $('#b1').click(function () {
+
+
+            var x = $("#m").val();
+            if (x == "no") {
+                alert("Low Quantity available!.. Order can not be fullfilled! ");
+            }
+        });
+    });
+</script>
+
+
+
+
+<br />
+<br />
+<div id="wrapper" class="wrapper">
+    <div class="container">
+       
+        
+            @foreach (var r in Model)
+{        
+    
+
+    <div class="row" style="border:2px solid black; background-color:whitesmoke">
+        <div class="col-md-1 col-sm-6 hero-feature" >
+            <p>
+                <font size="5" face=forte>@i.</font>
+</p>
+            </div>
+            <div class="col-md-4 col-sm-6 hero-feature" >
+
+                <label> <font size="20" face=forte style="border-bottom-style: double"> Buyer's Details  </font></label>
+                <br />
+                <label> <font size="5"> Buyer's Name : @r.Name  </font></label>
+                <br />
+                <label> <font size="5"> Buyer's Address : @r.Address  </font></label>
+                <br />
+
+
+            </div>
+
+
+
+            <div class="col-md-5 col-sm-6 hero-feature" >
+
+                <label> <font size="20" face=forte style="border-bottom-style: double"> Product Details  </font></label>
+                <br />
+                <label>  Product Name : @r.ProductName  </label>
+                <br />
+                <label>  Quantity : @r.Quantity </label>
+                <br />
+                <label> Product Rate : @r.Rate </label>
+                <br />
+                <label>  Total Ammount : @r.Price </label>
+                <br />
+
+
+            </div>
+
+
+            <div class="col-md-2 col-sm-6 hero-feature">
+                <br />
+                <br />
+                <a href="~/Admin/orderFullfilled?ref=@r.Oid&ref1=@r.Id&qty=@r.Quantity"><input type="button" class="btn btn-warning" id="b1" value=" Order Delivered!" /> </a>
+
+                <input type="hidden" value="@ViewBag.label" id="m" name="m">
+               
+
+
+
+            </div>
+
+            <br />
+
+        </div>
+                <br />
+                <br />
+                
+    i++;
+}
+
+
+
+        </div>
+    
+    <br />
+    <br />
+</div>
+
+

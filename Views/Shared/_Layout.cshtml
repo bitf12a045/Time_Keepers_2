@@ -1,0 +1,209 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Script/bootstrap.js"></script>
+</head>
+<body background="~/images/background.jpg">
+
+    <div id="wrapper" class="wrapper">
+
+
+        <style>
+            .wrapper {
+                margin: 0 auto;
+                padding: 0 10px;
+                width: 1150px;
+            }
+
+            body {
+                background-size: cover;
+                background-position: top center !important;
+                background-repeat: no-repeat !important;
+                background-attachment: fixed;
+            }
+        </style>
+
+
+        <div class="row">
+
+            <nav class="navbar navbar-form" role="navigation" style="background-color:black">
+                <div class="logo-holder alignleft">
+                    <div class="text-center">
+
+                      
+                            <strong class="logo">
+                                <a title="Time Keepers" class="text-center" href="~/Home/Index">
+                                    <span><font size="15" face=forte color=#FFE4C4 class="text-center">Time Keepers</font></span>
+                                </a>
+
+
+
+                            </strong>
+                      
+
+
+
+
+
+
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="level0 nav-1 level-top first parent">
+                                <a href="~/Home/Index" class="level-top">
+                                    <span><font color="Teal  ">Home</font></span>
+                                </a>
+                            </li>
+                            <li class="level0 nav-1 level-top first parent">
+                                <a href="~/Client/About" class="level-top">
+                                    <span><font color="Teal  ">About</font></span>
+                                </a>
+                            </li>
+                            <li class="level0 nav-1 level-top first parent">
+                                <a href="~/Client/Contact" class="level-top">
+                                    <span><font color="Teal  ">Contact</font></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <div class="nav-container" style="background-repeat: repeat-x; border-top: solid 1px #525355; align-content:center">
+
+
+
+                    <ul class="nav navbar-nav">
+                        <li class="level0 nav-1  level-top first parent">
+                            <a href="~/CLient/MenWatchCatagories" class="level-top">
+                                <span><font color="Teal  " size="4"> Men`s Watches</font> </span>
+                            </a>
+                        </li>
+                        <li class="level0 nav-1 level-top first parent">
+                            <a href="~/CLient/LadiesWatches" class="level-top">
+                                <span><font color="Teal  " size="4"> Ladies Watches</font> </span>
+                            </a>
+                        </li>
+                        <li class="level0 nav-1 level-top first parent">
+                            <a href="~/CLient/KidsWatches" class="level-top">
+                                <span> <font color="Teal  " size="4">Kids Watches </font> </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        
+    @if (!ReferenceEquals(Session["adminLoggedIn"], null)){
+                                var statedata=  HttpContext.Current.Session["adminLoggedIn"].ToString();
+                                    if(statedata=="yes")
+                                         {
+                                             
+                                        <li><a href="~/Admin/login"><span class="glyphicon glyphicon-cloud"></span><font color="Teal  "> Admin</font></a></li>
+                                         <li><a href="~/Client/Search"><span class="glyphicon glyphicon-search"></span><font color="Teal  "> Search </font></a></li>
+
+    }
+    else
+                                    {
+                                            <li><a href="~/Client/Search"><span class="glyphicon glyphicon-search"></span><font color="Teal  "> Search </font></a></li>
+
+                                            <li><a href="~/Client/SignUp"><span class="glyphicon glyphicon-user"></span><font color="Teal  "> Sign Up</font></a></li>
+                      if (ReferenceEquals(Session["userLoggedIn"], null))
+                      {
+                           <li><a href="~/Client/SignIn"><span class="glyphicon glyphicon-log-in"></span><font color="Teal  "> Login </font></a></li>
+
+                      }
+
+                          if (!ReferenceEquals(Session["userLoggedIn"], null)){
+                                var statedata1=  HttpContext.Current.Session["userLoggedIn"].ToString();
+                                    if(statedata1=="no")   
+                                         {
+
+                    <li><a href="~/Client/SignIn"><span class="glyphicon glyphicon-log-in"></span><font color="Teal  "> Login </font></a></li>
+
+                        }
+                        
+                         if(statedata1=="yes")   
+                                         {
+
+                     <li><a href="~/Client/SignOut"><span class="glyphicon glyphicon-log-out"></span><font color="Teal  "> LogOut </font></a></li>
+                        } 
+                        }
+                                    }
+    
+    }
+    else //if (ReferenceEquals(Session["adminLoggedIn"], null) || HttpContext.Current.Session["adminLoggedIn"].ToString() == "no")
+    { 
+                        <li><a href="~/Client/Search"><span class="glyphicon glyphicon-search"></span><font color="Teal  "> Search </font></a></li>
+
+                                            <li><a href="~/Client/SignUp"><span class="glyphicon glyphicon-user"></span><font color="Teal  "> Sign Up</font></a></li>
+                      if (ReferenceEquals(Session["userLoggedIn"], null))
+                      {
+                           <li><a href="~/Client/SignIn"><span class="glyphicon glyphicon-log-in"></span><font color="Teal  "> Login </font></a></li>
+
+                      }
+
+                          if (!ReferenceEquals(Session["userLoggedIn"], null)){
+                                var statedata=  HttpContext.Current.Session["userLoggedIn"].ToString();
+                                    if(statedata=="no")   
+                                         {
+
+                    <li><a href="~/Client/SignIn"><span class="glyphicon glyphicon-log-in"></span><font color="Teal  "> Login </font></a></li>
+
+                        }
+                        
+                         if(statedata=="yes")   
+                                         {
+
+                     <li><a href="~/Client/SignOut"><span class="glyphicon glyphicon-log-out"></span><font color="Teal  "> LogOut </font></a></li>
+                        } 
+                        }
+    }
+                       
+                      
+
+                    </ul>
+
+                </div>
+
+
+            </nav>
+        </div>
+
+
+    </div>
+
+    @RenderBody()
+
+    <div id="wrapper" class="wrapper">
+        <div class="row">
+            <table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h2><font size="5" face="forte" color="Teal">Free Delivery</font></h2>
+                            <p><span style="color: black;">High quality watches. Free delivery across <strong><span style="color: #008000;">Pakistan.&nbsp;</span></strong>No hidden charges. Delivery within 24-48 hours. Payment on Delivery</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div id="wrapper" class="wrapper">
+        <div class=" footer-content">
+
+            <p class="text-muted">
+                &copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+            </p>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>
